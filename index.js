@@ -7,16 +7,19 @@ const database = require("./db/db.js");
 
 const app = express();
 app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// app.use(cors());
-app.use("/", Routes);
-dotenv.config();
 var corsOptions = {
   origin: "http://localhost:3000",
 };
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  res.header({ "Access-Control-Allow-Origin": "*" });
+  next();
+});
+// app.use(cors());
+app.use("/", Routes);
+dotenv.config();
 
 const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
