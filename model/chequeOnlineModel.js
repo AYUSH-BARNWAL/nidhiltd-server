@@ -12,9 +12,8 @@ const chequeOnline = new mongoose.Schema({
   },
   accountnumber: {
     type: Number,
-    default: 123,
+    default: 0,
   },
-  //membership: Number,
   amount: {
     type: Number,
     default: 0,

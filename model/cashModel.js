@@ -44,12 +44,11 @@ const cashModel = new mongoose.Schema({
   },
   membershipnumber: {
     type: Number,
-    default: 0,
   },
-  member: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "membermodel", // Reference the membermodel
-  },
+  // member: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "membermodel", // Reference the membermodel
+  // },
 });
 
 cashModel.plugin(AutoIncrement, { inc_field: "cashId" });

@@ -6,7 +6,7 @@ const membermodel = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
-  membershipamount: {
+  membershipCharge: {
     type: Number,
   },
   balance: {

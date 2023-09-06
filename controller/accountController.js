@@ -18,7 +18,7 @@ exports.getaccount = async (req, res) => {
     const getaccountdetails = await Account.find();
     res.status(200).json(getaccountdetails);
   } catch (error) {
-    console.error("Error while calling getaccount API:", error);
+    console.error("Error while calling getaccount API:", error.message);
     throw error;
   }
 };

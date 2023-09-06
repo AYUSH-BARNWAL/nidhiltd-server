@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const personalModel = new mongoose.Schema({
-  membership: Number,
+  membershipnumber: Number,
   title: String,
   firstName: String,
   middleName: String,
@@ -25,7 +25,6 @@ const personalModel = new mongoose.Schema({
   dist: String,
   state: String,
   pin: String,
-
   name1: String,
   aadhar1: String,
   email1: String,
@@ -34,7 +33,6 @@ const personalModel = new mongoose.Schema({
   relation1: String,
   voter1: String,
   ration1: String,
-
   name2: String,
   aadhar2: String,
   email2: String,
@@ -43,7 +41,6 @@ const personalModel = new mongoose.Schema({
   relation2: String,
   voter2: String,
   ration2: String,
-
   name3: String,
   aadhar3: String,
   email3: String,

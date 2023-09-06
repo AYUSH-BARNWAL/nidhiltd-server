@@ -6,7 +6,7 @@ exports.membership = async (req, res) => {
   try {
     const lastMember = await Member.findOne().sort({ membershipnumber: -1 });
     const balance = lastMember ? lastMember.balance : 0;
-    member.balance = balance + Number(req.body.membershipamount);
+    member.balance = balance + Number(req.body.membershipCharge);
 
     const newMember = new Member(member);
     await newMember.save();

@@ -2,8 +2,6 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = "nidhil";
 
 const authenticate = async (req, res, next) => {
-  // const token = req.header("Authorization");
-  // const token = req.headers.authorization.split(" ")[1]; // token = localStorage.getItem("jwtToken");
   try {
     const token =
       req.headers.authorization.split(" ")[1] ||
@@ -16,6 +14,12 @@ const authenticate = async (req, res, next) => {
 
     try {
       const decoded = await jwt.verify(token, JWT_SECRET);
+      console.log(decoded);
+      if (decoded.exp * 1000 <= Date.now()) {
+        // Token is expired
+        console.error("Token is expired");
+        return res.status(401).json({ message: "Token expired" });
+      }
       req.user = decoded; // Attach user data to the request
       console.log("token verified: ", decoded);
       next();
@@ -29,7 +33,7 @@ const authenticate = async (req, res, next) => {
   } catch (error) {
     res.status(401).json({
       message: "Invalid token",
-      error: error,
+      error: error.message,
     });
   }
 };

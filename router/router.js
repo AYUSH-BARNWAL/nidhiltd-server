@@ -1,6 +1,5 @@
 const express = require("express");
 const { addpersonal } = require("../controller/personalcontroller.js");
-const { addfinnancial } = require("../controller/finnancilacontroller.js");
 const { addcash, getcash } = require("../controller/cashController.js");
 const {
   addChequeOnline,
@@ -23,7 +22,6 @@ router.post(`/online`, authenticate, addChequeOnline); // Protected route, requi
 router.get(`/allCash`, authenticate, getcash); // Protected route, requires authentication
 router.get(`/allChequeOnline`, authenticate, getcheque); // Protected route, requires authentication
 router.post(`/personal`, authenticate, addpersonal); // Protected route, requires authentication
-router.post(`/finnacial`, authenticate, addfinnancial); // Protected route, requires authentication
 router.post(`/membership`, authenticate, membership); // Protected route, requires authentication
 router.get(`/getmembershipnumber`, authenticate, getmembershipno); // Protected route, requires authentication
 router.post(`/addpromotors`, authenticate, addpromotor); // Protected route, requires authentication
